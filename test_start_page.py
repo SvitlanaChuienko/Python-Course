@@ -1,9 +1,7 @@
 import logging
-from time import sleep
 
 import pytest
 from selenium.webdriver.chrome.webdriver import WebDriver
-from selenium.webdriver.common.by import By
 
 from constants.base import BaseConstants
 from pages.start_page import StartPage
@@ -138,7 +136,6 @@ class TestStartPage:
         # - Enter invalid data in email field
         # - Enter valid data in password field
         # - Click on 'Sing up for OurApp' button
-
         username_value = start_page.random_str()
         password_value = f"QWERTY{start_page.random_num()}"
         start_page.sign_up(username=username_value, email="estacc@gmail", password=password_value)

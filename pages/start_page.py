@@ -38,18 +38,20 @@ class StartPage(BasePage):
 
     def verify_success_redirect_by_header_link(self):
         self.click(xpath=self.constants.LINK_IN_HEADER_XPATH)
-        assert self.driver.find_element(by=By.XPATH, value=self.constants.REGISTRATION_FORM_XPATH)
+        start_page = self.driver.find_element(by=By.XPATH, value=self.constants.REGISTRATION_FORM_XPATH)
+        assert start_page.is_displayed()
 
     def verify_success_redirect_by_footer_link(self):
         self.click(xpath=self.constants.LINK_IN_FOOTER_XPATH)
-        assert self.driver.find_element(by=By.XPATH, value=self.constants.REGISTRATION_FORM_XPATH)
+        start_page = self.driver.find_element(by=By.XPATH, value=self.constants.REGISTRATION_FORM_XPATH)
+        assert start_page.is_displayed()
 
     def verify_validation_error_username_in_sigh_up(self):
         validation_username_error = self.driver.find_element(by=By.XPATH, value=self.constants.
                                                              SIGN_UP_VALIDATION_ERROR_USERNAME_XPATH)
-        assert validation_username_error
+        assert validation_username_error.is_displayed()
 
     def verify_validation_error_email_in_sign_up(self):
         validation_email_error = self.driver.find_element(by=By.XPATH,
                                                           value=self.constants.SIGN_UP_VALIDATION_ERROR_EMAIL_XPATH)
-        assert validation_email_error
+        assert validation_email_error.is_displayed
