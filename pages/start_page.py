@@ -1,8 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from constants.start_page import StartPageConstants
 from pages.base_page import BasePage
-from pages.profile_page import ProfilePage
 from pages.utils import log_wrapper, wait_until_ok
 
 
@@ -10,6 +8,7 @@ class StartPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
+        from constants.start_page import StartPageConstants
         self.constants = StartPageConstants()
 
     @log_wrapper
@@ -18,6 +17,7 @@ class StartPage(BasePage):
         self.fill_field(xpath=self.constants.SIGN_IN_USERNAME_XPATH, value=username)
         self.fill_field(xpath=self.constants.SIGN_IN_PASSWORD_XPATH, value=password)
         self.click(xpath=self.constants.SIGH_IN_BUTTON_XPATH)
+        from pages.profile_page import ProfilePage
         return ProfilePage(self.driver)
 
     @log_wrapper
@@ -34,6 +34,7 @@ class StartPage(BasePage):
         self.fill_field(xpath=self.constants.SIGN_UP_PASSWORD_XPATH, value=user.password)
         self.click_sing_up_and_verify()
 
+        from pages.profile_page import ProfilePage
         return ProfilePage(self.driver)
 
     @wait_until_ok(timeout=10, period=1)
