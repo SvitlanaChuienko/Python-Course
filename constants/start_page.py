@@ -15,9 +15,6 @@ class StartPageConstants:
     SIGN_UP_VALIDATION_ERROR_USERNAME_XPATH = '//*[text()="Username can only contain letters and numbers."]'
     SIGN_UP_VALIDATION_ERROR_EMAIL_XPATH = './/*[text()="You must provide a valid email address."]'
 
-    # Profile page
-    SIGN_OUT_BUTTON_XPATH = ".//button[text()='Sign Out']"
-
     # Links
     LINK_IN_HEADER_XPATH = './/a[@class="text-white"]'
     LINK_IN_FOOTER_XPATH = './/a[@class="text-muted"]'
