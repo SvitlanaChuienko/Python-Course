@@ -34,7 +34,7 @@ class StartPage(BasePage):
 
     def verify_sign_out_button(self):
         sign_out_button = self.driver.find_element(xpath=self.constants.SIGN_OUT_BUTTON_XPATH)
-        assert sign_out_button
+        assert sign_out_button.is_displayed()
 
     def verify_success_redirect_by_header_link(self):
         self.click(xpath=self.constants.LINK_IN_HEADER_XPATH)
@@ -54,4 +54,4 @@ class StartPage(BasePage):
     def verify_validation_error_email_in_sign_up(self):
         validation_email_error = self.driver.find_element(by=By.XPATH,
                                                           value=self.constants.SIGN_UP_VALIDATION_ERROR_EMAIL_XPATH)
-        assert validation_email_error.is_displayed
+        assert validation_email_error.is_displayed()
